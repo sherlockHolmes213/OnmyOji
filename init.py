@@ -2,7 +2,9 @@ import time
 import win32gui, win32ui, win32con, win32api
 import configData
 import test
-
+import ctypes
+import sys
+sys.setrecursionlimit(1000000)
 def window_capture(filename,flag=True):
   hwnd = 0 # 窗口的编号，0号表示当前活跃窗口
   # 根据窗口句柄获取窗口的设备上下文DC（Divice Context）
@@ -29,3 +31,18 @@ def window_capture(filename,flag=True):
   if(flag):
     test.missionJun()
 window_capture("a.png")
+
+
+# def is_admin():
+#   try:
+#     return ctypes.windll.shell32.IsUserAnAdmin()
+#   except:
+#     return False
+# if is_admin():
+#     # 将要运行的代码加到这里
+#     window_capture("a.png")
+# else:
+#     if sys.version_info[0] == 3:
+#       ctypes.windll.shell32.ShellExecuteW(None, "runas", sys.executable, __file__, None, 1)
+#     else:  # in python2.x
+#       ctypes.windll.shell32.ShellExecuteW(None, u"runas", unicode(sys.executable), unicode(__file__), None, 1)

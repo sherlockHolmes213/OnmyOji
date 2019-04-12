@@ -6,18 +6,15 @@ import pyautogui
 import random
 
 
-returnFlag = False
+
 def missionStart():
-    global returnFlag
-    returnFlag = match.template_image("a.png","images/" + configData.wareConfigData["matchImg"]["status"][0][configData.wareType]+".png")
+    configData.returnFlag = match.template_image("a.png","images/" + configData.wareConfigData["matchImg"]["status"][0][configData.wareType]+".png")
     missionIng()
 def missionAccount():
-    global returnFlag
-    returnFlag = match.template_image("a.png","images/"+ configData.wareConfigData["matchImg"]["status"][1] + ".png")
+    configData.returnFlag = match.template_image("a.png","images/"+ configData.wareConfigData["matchImg"]["status"][1] + ".png")
     missionIng()
 def missionEnd():
-    global returnFlag
-    returnFlag = match.template_image("a.png","images/"+ configData.wareConfigData["matchImg"]["status"][2] + ".png")
+    configData.returnFlag = match.template_image("a.png","images/"+ configData.wareConfigData["matchImg"]["status"][2] + ".png")
     missionIng()
 
 def missionInvite():
@@ -47,15 +44,17 @@ def isLock():
     
 def missionIng():
     import init
-    if(not returnFlag):
-        return init.window_capture("a.png")
+    if(not configData.returnFlag):
+        init.window_capture("a.png",False)
+        configData.returnFlag = match.template_image("a.png","")
+        return
     if(configData.flag == 1):
         print("战斗开始")
         mouseEvent.mouseMove(configData.tl,configData.tw,configData.th,0)
         mouseEvent.mouseClick()
         configData.flag = 2
         time.sleep(configData.wareConfigData["sleepTime"][configData.wareType])
-        init.window_capture("a.png")
+        return init.window_capture("a.png")
     elif(configData.flag == 2):
         print("战斗结算")
         mouseEvent.mouseMove(configData.tl,configData.tw,configData.th,0)
@@ -63,7 +62,7 @@ def missionIng():
         pyautogui.click(duration=0.25)
         time.sleep(0.5)
         configData.flag = 3
-        init.window_capture("a.png")
+        return init.window_capture("a.png")
     else:
         print("战斗结束")
         mouseEvent.mouseMove(configData.tl,configData.tw,configData.th,1)

@@ -29,3 +29,6 @@ tl = []
 th = ""
 tw = ""
 count = 0
+matchResult = False
+tplImgTemp = ""
+returnFlag = False

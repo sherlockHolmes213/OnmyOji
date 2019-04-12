@@ -2,9 +2,11 @@ import cv2 as cv
 import numpy as np
 import configData
 import random
+import sys
+import ctypes
 def template_demo():
-    target= cv.imread("c.png")
-    tpl = cv.imread("images/unlock.png")
+    target= cv.imread("b.png")
+    tpl = cv.imread("images/account.png")
     # tpl = cv.imread("images/sure.png")
     # cv.imshow("template image",tpl)
     # cv.imshow("target image",target)
@@ -28,6 +30,32 @@ def template_demo():
 # template_demo()
 # cv.waitKey(0)
 # cv.destroyAllWindows()
-print("正在刷 %s ,已经进行 %d 次"%(configData.wareConfigData["wareName"][configData.wareType],configData.count))
-print(configData.wareConfigData["wareName"][configData.wareType])
-print(configData.count)
+# print("正在刷 %s ,已经进行 %d 次"%(configData.wareConfigData["wareName"][configData.wareType],configData.count))
+# print(configData.wareConfigData["wareName"][configData.wareType])
+# print(configData.count)
+
+# print(type(len(configData.wareConfigData["wareType"])))
+
+# for i in configData.wareConfigData["wareName"]:
+#     print(i)
+
+#         def selectYl(self,Dialog):
+#         self.role.setEnabled(False)
+#         self.isTeam.setEnabled(False)
+if "111":
+    print("False")
+else:
+    print("true")
+# flag = False
+# def fun1():
+#     print("1")
+#     return False
+# def fun2():
+#     global flag
+#     flag = fun1()
+#     if(not flag):
+#         fun1()
+#         return
+#     print("2")
+# fun2()
+0.12 <0.5 <5

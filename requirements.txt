@@ -3,4 +3,5 @@ opencv-python
 PyAutoGUI
 pypiwin32
 pywin32
+wxpython
 
