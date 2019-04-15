@@ -27,9 +27,9 @@ def template_demo():
         cv.imshow("match-%s"%md,target)
 
 
-# template_demo()
-# cv.waitKey(0)
-# cv.destroyAllWindows()
+template_demo()
+cv.waitKey(0)
+cv.destroyAllWindows()
 # print("正在刷 %s ,已经进行 %d 次"%(configData.wareConfigData["wareName"][configData.wareType],configData.count))
 # print(configData.wareConfigData["wareName"][configData.wareType])
 # print(configData.count)
@@ -59,3 +59,4 @@ else:
 #     print("2")
 # fun2()
 0.12 <0.5 <5
+print(configData.wareConfigData["matchImg"]["status"][0])

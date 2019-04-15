@@ -16,6 +16,13 @@ def missionJun():
     elif(configData.flag == 2):
         return yuling.missionAccount()
     else:
-        return yuling.missionEnd()
+        yuling.missionEnd()
+        # time.sleep(2)
+        # if(configData.wareConfigData["role"] == "captain" and not configData.wareConfigData["isAutoInvite"] and configData.wareType==2):
+        #     time.sleep(2)
+        #     yuling.missionInvite()
+        # elif(configData.wareConfigData["role"] == "member" and not configData.wareConfigData["isAtoAcceptInvite"] and configData.wareType==2):
+        #     time.sleep(2)
+        #     yuling.missionInviteAccept()
        
 

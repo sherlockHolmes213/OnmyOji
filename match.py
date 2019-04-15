@@ -25,11 +25,8 @@ def template_image(targetImg,tplImg):
         else:
             configData.tl = max_loc
         if(min_val==1.0 or min_val>0.12 or min_val>1):
-            if(configData.matchResult):
-                configData.returnFlag = False
-                return yuling.missionIng()   
-        configData.returnFlag = True
-        return yuling.missionIng()
+            return False
+        return True
         
 
 

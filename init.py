@@ -4,7 +4,7 @@ import configData
 import test
 import ctypes
 import sys
-sys.setrecursionlimit(1000000)
+# sys.setrecursionlimit(1000000)
 def window_capture(filename,flag=True):
   hwnd = 0 # 窗口的编号，0号表示当前活跃窗口
   # 根据窗口句柄获取窗口的设备上下文DC（Divice Context）
@@ -27,10 +27,23 @@ def window_capture(filename,flag=True):
   # 截取从左上角（0，0）长宽为（w，h）的图片
   saveDC.BitBlt((0, 0), (w, h), mfcDC, (0, 0), win32con.SRCCOPY)
   saveBitMap.SaveBitmapFile(saveDC, filename)
+  win32gui.DeleteObject(saveBitMap.GetHandle())
+  saveDC.DeleteDC()
   # 战斗开始 判断 是否接受邀请或邀请队友
   if(flag):
     test.missionJun()
-window_capture("a.png")
+# window_capture("a.png")
+def init():
+  while True:
+    time.sleep(1)
+    try:
+        window_capture("a.png")
+    except:
+        print("错误")
+        window_capture("a.png")
+init()
+    
+
 
 
 # def is_admin():
